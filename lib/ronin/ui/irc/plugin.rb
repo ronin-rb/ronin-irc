@@ -94,6 +94,22 @@ module Ronin
         end
 
         #
+        # Determines if a user belongs to any of the channels.
+        #
+        # @param [Cinch::User] user
+        #   The user.
+        #
+        # @yield []
+        #   If the user belongs to one of the channels, the block will be
+        #   called.
+        #
+        def is_member(user)
+          if bot.channels.any? { |channel| channel.has_user?(user) }
+            yield
+          end
+        end
+
+        #
         # Filters out messages from users not within any of the channels.
         #
         # @param [Cinch::Message] m
@@ -103,10 +119,8 @@ module Ronin
         #   If the message was sent by a user belonging to one of the channels,
         #   the given block will be called.
         #
-        def msg_filter(m)
-          if bot.channels.any? { |channel| channel.has_user?(m.user) }
-            yield
-          end
+        def msg_filter(m,&block)
+          is_member(m.user,&block)
         end
 
       end
