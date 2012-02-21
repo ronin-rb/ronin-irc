@@ -34,13 +34,15 @@ module Ronin
           summary "Displays the current time, in the optional timezone"
 
           def execute(m,timezone=nil)
-            time = ::Time.now
+            msg_filter(m) do
+              time = ::Time.now
 
-            if (timezone && (offset = ::Time.zone_offset(timezone)))
-              time = time.utc + offset
+              if (timezone && (offset = ::Time.zone_offset(timezone)))
+                time = time.utc + offset
+              end
+
+              m.reply("Time: #{time}")
             end
-
-            m.reply("Time: #{time}")
           end
 
         end

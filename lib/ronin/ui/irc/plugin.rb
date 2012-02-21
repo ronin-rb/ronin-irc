@@ -93,6 +93,22 @@ module Ronin
           end
         end
 
+        #
+        # Filters out messages from users not within any of the channels.
+        #
+        # @param [Cinch::Message] m
+        #   The message to filter.
+        #
+        # @yield []
+        #   If the message was sent by a user belonging to one of the channels,
+        #   the given block will be called.
+        #
+        def msg_filter(m)
+          if bot.channels.any? { |channel| channel.has_user?(m.user) }
+            yield
+          end
+        end
+
       end
     end
   end

@@ -32,10 +32,12 @@ module Ronin
           summary "Displays help information on plugin(s)"
 
           def execute(m,command=nil)
-            if command
-            else
-              bot.config.plugins.plugins.each do |plugin|
-                m.user.msg("!#{plugin.command_name}\t#{plugin.usage}\t#{plugin.summary}")
+            msg_filter(m) do |m|
+              if command
+              else
+                bot.config.plugins.plugins.each do |plugin|
+                  m.user.msg("!#{plugin.command_name}\t#{plugin.usage}\t#{plugin.summary}")
+                end
               end
             end
           end

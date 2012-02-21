@@ -32,18 +32,20 @@ module Ronin
           summary "Kick/bans everyone from the channel, and marks it secret"
 
           def execute(m)
-            has_ops_in(m.channel) do
-              m.channel.topic = ''
+            msg_filter(m) do
+              has_ops_in(m.channel) do
+                m.channel.topic = ''
 
-              m.channel.users.each do |user|
-                m.channel.kick(user,"you were never here")
+                m.channel.users.each do |user|
+                  m.channel.kick(user,"you were never here")
+                end
+
+                m.channel.ban('*!*@*')
+                m.channel.secret = true
+
+                m.reply "Channel #{m.channel} has been burned!"
+                m.channel.part
               end
-
-              m.channel.ban('*!*@*')
-              m.channel.secret = true
-
-              m.reply "Channel #{m.channel} has been burned!"
-              m.channel.part
             end
           end
 
