@@ -76,24 +76,6 @@ module Ronin
         protected
 
         #
-        # Determines if the bot has ops in the channel.
-        #
-        # @param [Cinch::Channel] channel
-        #   The channel the bot might have ops in.
-        #
-        # @yield []
-        #
-        def has_ops_in(channel)
-          if channel
-            if channel.opped?(@bot.nick)
-              yield
-            else
-              channel.msg("#{self.class.command_name} requires OPs")
-            end
-          end
-        end
-
-        #
         # Determines if a user belongs to any of the channels.
         #
         # @param [Cinch::User] user
@@ -137,6 +119,26 @@ module Ronin
             yield
           else
             m.reply("#{self.class.command_name} must be sent to a channel")
+          end
+        end
+
+        #
+        # Determines if the bot has ops in the channel a message was sent to.
+        #
+        # @param [Cinch::Message] m
+        #   The channel the bot might have ops in.
+        #
+        # @yield []
+        #   If the bot has ops in the channel the message was sent to,
+        #   the block will be called.
+        #
+        def channel_ops_filter(m)
+          channel_msg_filter(m) do
+            if m.channel.opped?(@bot.nick)
+              yield
+            else
+              m.reply("#{self.class.command_name} requires OPs")
+            end
           end
         end
 

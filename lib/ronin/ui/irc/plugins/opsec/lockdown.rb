@@ -34,24 +34,22 @@ module Ronin
           summary "Marks the channel secret, invite-only and passwords it"
 
           def execute(m,mode='on')
-            channel_msg_filter(m) do
-              has_ops_in(m.channel) do
-                case mode
-                when 'on'
-                  password = Chars.alpha_numeric.random_string(10)
+            channel_ops_filter(m) do
+              case mode
+              when 'on'
+                password = Chars.alpha_numeric.random_string(10)
 
-                  m.channel.secret      = true
-                  m.channel.invite_only = true
-                  m.channel.key         = password
+                m.channel.secret      = true
+                m.channel.invite_only = true
+                m.channel.key         = password
 
-                  m.reply "Channel #{m.channel} is now locked down!"
-                when 'off'
-                  m.channel.secret      = false
-                  m.channel.invite_only = false
-                  m.channel.key         = nil
+                m.reply "Channel #{m.channel} is now locked down!"
+              when 'off'
+                m.channel.secret      = false
+                m.channel.invite_only = false
+                m.channel.key         = nil
 
-                  m.reply "Channel #{m.channel} is no longer locked down."
-                end
+                m.reply "Channel #{m.channel} is no longer locked down."
               end
             end
           end
