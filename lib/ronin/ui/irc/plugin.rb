@@ -88,7 +88,7 @@ module Ronin
             if channel.opped?(@bot.nick)
               yield
             else
-              channel.msg("#{self.class.__plugin_name} requires OPs")
+              channel.msg("#{self.class.command_name} requires OPs")
             end
           end
         end
