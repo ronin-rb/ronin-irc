@@ -35,7 +35,7 @@ module Ronin
           match /insult (\S+)/
 
           def execute(m,nick)
-            if m.channel.has_user?(nick)
+            if (m.channel && m.channel.has_user?(nick))
               m.channel.msg("#{nick}, #{INSULTS[rand(INSULTS.length)]}")
             end
           end
