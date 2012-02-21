@@ -79,7 +79,7 @@ module Ronin
             c.ssl.use  = !options[:ssl].nil?
             c.user     = options.fetch(:user,DEFAULT_USER)
             c.nick     = options.fetch(:nick,DEFAULT_NICK)
-            c.realname = options.fetch(:real_name,REAL_NAME)
+            c.realname = options.fetch(:real_name,DEFAULT_REAL_NAME)
             c.channels = options[:channels]
             c.verbose  = UI::Output.verbose?
 
