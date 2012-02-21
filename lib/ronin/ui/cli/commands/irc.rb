@@ -85,6 +85,9 @@ module Ronin
                            :flag        => '-i',
                            :description => 'Users to invite to the channel(s)'
 
+          option :plugins, :type        => Set[String],
+                           :description => 'Plugin groups to enable'
+
           def execute
             bot = UI::IRC::Bot.new(
               :host     => @host,
@@ -94,7 +97,8 @@ module Ronin
               :user     => @user,
               :nick     => @nick,
               :channels => @channels,
-              :invites  => @invites
+              :invites  => @invites,
+              :plugins  => @plugins
             )
 
             bot.start

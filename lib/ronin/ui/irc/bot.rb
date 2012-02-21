@@ -17,7 +17,6 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins'
 require 'ronin/ui/output'
 
 require 'cinch'
@@ -67,11 +66,17 @@ module Ronin
         # @option options [String] :real_name (DEFAULT_REAL_NAME)
         #   The real-name to use.
         #
-        # @option options [Array<String>] :channels
+        # @option options [Set<String>] :channels
         #   The channel(s) to join.
         #
-        # @option options [Array<String>] :invites
+        # @option options [Set<String>] :invites
         #   Users to be invited to the channels.
+        #
+        # @option options [Set<String>] :plugins
+        #   Plugin groups to load. May include any of the following:
+        #
+        #   * `:misc` - Miscellaneous plugins.
+        #   * `:opsec` - Operational Security plugins.
         #
         def initialize(options={})
           super()
@@ -87,6 +92,18 @@ module Ronin
             c.channels   = Set[*options[:channels]]
             c.invites    = Set[*options[:invites]]
             c.verbose    = UI::Output.verbose?
+
+            if (options[:plugins].nil? || options[:plugins].empty?)
+              require 'ronin/ui/irc/plugins'
+            else
+              options[:plugins].each do |group|
+                begin
+                  require File.join('ronin','ui','irc',group)
+                rescue ::LoadError
+                  raise(ArgumentError,"unknown plugin group: #{group.dump}")
+                end
+              end
+            end
 
             c.plugins.plugins = Plugins.constants.map do |name|
               Plugins.const_get(name)
