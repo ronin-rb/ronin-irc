@@ -21,6 +21,7 @@ require 'ronin/ui/irc/plugins'
 require 'ronin/ui/output'
 
 require 'cinch'
+require 'set'
 
 module Ronin
   module UI
@@ -69,22 +70,37 @@ module Ronin
         # @option options [Array<String>] :channels
         #   The channel(s) to join.
         #
+        # @option options [Array<String>] :invites
+        #   Users to be invited to the channels.
+        #
         def initialize(options={})
           super()
 
           configure do |c|
-            c.server   = options[:host]
-            c.port     = options[:port]
-            c.password = options[:password]
-            c.ssl.use  = !options[:ssl].nil?
-            c.user     = options.fetch(:user,DEFAULT_USER)
-            c.nick     = options.fetch(:nick,DEFAULT_NICK)
-            c.realname = options.fetch(:real_name,DEFAULT_REAL_NAME)
-            c.channels = options[:channels]
-            c.verbose  = UI::Output.verbose?
+            c.server     = options[:host]
+            c.port       = options[:port]
+            c.password   = options[:password]
+            c.ssl.use    = !options[:ssl].nil?
+            c.user       = options.fetch(:user,DEFAULT_USER)
+            c.nick       = options.fetch(:nick,DEFAULT_NICK)
+            c.realname   = options.fetch(:real_name,DEFAULT_REAL_NAME)
+            c.channels   = Set[*options[:channels]]
+            c.invites    = Set[*options[:invites]]
+            c.verbose    = UI::Output.verbose?
 
             c.plugins.plugins = Plugins.constants.map do |name|
               Plugins.const_get(name)
+            end
+          end
+
+          # when the bot joins the target channel, invite the users
+          on :join do |m|
+            if m.user.nick == bot.nick
+              if bot.config.channels.include?(m.channel.name)
+                bot.config.invites.each do |nick|
+                  m.channel.invite(nick)
+                end
+              end
             end
           end
         end

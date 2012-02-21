@@ -77,9 +77,13 @@ module Ronin
                         :default     => UI::IRC::Bot::DEFAULT_NICK,
                         :description => 'Nickname to login with'
 
-          option :channels, :type        => Array[String],
+          option :channels, :type        => Set[String],
                             :flag        => '-c',
                             :description => 'Channel(s) to join'
+
+          option :invites, :type        => Set[String],
+                           :flag        => '-i',
+                           :description => 'Users to invite to the channel(s)'
 
           def execute
             bot = UI::IRC::Bot.new(
@@ -89,7 +93,8 @@ module Ronin
               :ssl      => @ssl,
               :user     => @user,
               :nick     => @nick,
-              :channels => @channels
+              :channels => @channels,
+              :invites  => @invites
             )
 
             bot.start
