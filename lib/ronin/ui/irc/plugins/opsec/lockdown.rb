@@ -34,7 +34,7 @@ module Ronin
           summary "Marks the channel secret, invite-only and passwords it"
 
           def execute(m,mode='on')
-            msg_filter(m) do
+            channel_msg_filter(m) do
               has_ops_in(m.channel) do
                 case mode
                 when 'on'

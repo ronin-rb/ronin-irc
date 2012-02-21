@@ -32,7 +32,7 @@ module Ronin
           summary "Kick/bans everyone from the channel, and marks it secret"
 
           def execute(m)
-            msg_filter(m) do
+            channel_msg_filter(m) do
               has_ops_in(m.channel) do
                 m.channel.topic = ''
 

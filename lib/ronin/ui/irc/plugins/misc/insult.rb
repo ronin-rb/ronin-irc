@@ -38,8 +38,8 @@ module Ronin
           summary "Insults a user in the channel"
 
           def execute(m,nick)
-            msg_filter(m) do
-              if (m.channel && m.channel.has_user?(nick))
+            channel_msg_filter(m) do
+              if m.channel.has_user?(nick)
                 if nick == m.user.nick
                   m.reply("don't be so hard on yourself")
                 else

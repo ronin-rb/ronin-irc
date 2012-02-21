@@ -123,6 +123,23 @@ module Ronin
           is_member(m.user,&block)
         end
 
+        #
+        # Filters out messages not sent to a channel.
+        #
+        # @param [Cinch::Message] m
+        #   The message to filter.
+        #
+        # @yield []
+        #   If the message was sent to a channel, the block will be called.
+        #
+        def channel_msg_filter(m)
+          if (m.channel && bot.channels.include?(m.channel))
+            yield
+          else
+            m.reply("#{self.class.command_name} must be sent to a channel")
+          end
+        end
+
       end
     end
   end
