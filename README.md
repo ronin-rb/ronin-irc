@@ -21,6 +21,7 @@ Ronin UI IRC is an IRC bot for Ronin.
 * `!insult NICK` - Insults a user in the channel.
 * `!time [TIMEZONE]` - Displays the current time, in the optional timezone.
 * `!lockdown [on|off]` - Locks down the channel.
+* `!burn` - Kick/Bans everyone from the channel.
 
 ## Requirements
 

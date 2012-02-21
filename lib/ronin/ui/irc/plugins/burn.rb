@@ -17,7 +17,37 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins/insult'
-require 'ronin/ui/irc/plugins/time'
-require 'ronin/ui/irc/plugins/lockdown'
-require 'ronin/ui/irc/plugins/burn'
+require 'cinch'
+require 'chars'
+
+module Ronin
+  module UI
+    module IRC
+      module Plugins
+        class Burn
+
+          include Cinch::Plugin
+
+          match 'burn'
+
+          def execute(m)
+            if m.channel.opped?(@bot.nick)
+              m.channel.topic = ''
+
+              m.channel.users.each do |user|
+                m.channel.kick(user,"you were never here")
+              end
+
+              m.channel.ban('*!*@*')
+              m.channel.secret = true
+
+              m.reply "Channel #{m.channel} has been burned!"
+              m.channel.part
+            end
+          end
+
+        end
+      end
+    end
+  end
+end
