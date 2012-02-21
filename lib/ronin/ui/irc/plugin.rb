@@ -17,6 +17,8 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+require 'cinch'
+
 module Ronin
   module UI
     module IRC
@@ -25,21 +27,26 @@ module Ronin
       #
       class Plugin
 
-        include Cinche::Plugin
+        include Cinch::Plugin
 
         protected
 
         #
         # Determines if the bot has ops in the channel.
         #
-        # @param [String] channel
+        # @param [Cinch::Channel] channel
         #   The channel the bot might have ops in.
         #
-        # @return [Boolean]
-        #   Specifies whether the bot has ops in the channel
+        # @yield []
         #
-        def ops?(channel)
-          channel.opped?(@bot.nick)
+        def has_ops_in(channel)
+          if channel
+            if channel.opped?(@bot.nick)
+              yield
+            else
+              channel.msg("#{self.class.__plugin_name} requires OPs")
+            end
+          end
         end
 
       end

@@ -17,16 +17,15 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'cinch'
+require 'ronin/ui/irc/plugin'
+
 require 'time'
 
 module Ronin
   module UI
     module IRC
       module Plugins
-        class Time
-
-          include Cinch::Plugin
+        class Time < Plugin
 
           match 'time'
           match /time ([A-Z]+(?:-\d{1,2})?)/

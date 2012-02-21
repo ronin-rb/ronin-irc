@@ -17,22 +17,21 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'cinch'
+require 'ronin/ui/irc/plugin'
+
 require 'chars'
 
 module Ronin
   module UI
     module IRC
       module Plugins
-        class Lockdown
-
-          include Cinch::Plugin
+        class Lockdown < Plugin
 
           match 'lockdown'
           match /lockdown (on|off)/
 
           def execute(m,mode='on')
-            if m.channel.opped?(@bot.nick)
+            has_ops_in(m.channel) do
               case mode
               when 'on'
                 password = Chars.alpha_numeric.random_string(10)

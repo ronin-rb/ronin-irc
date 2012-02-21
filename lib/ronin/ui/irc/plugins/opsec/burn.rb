@@ -17,21 +17,20 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'cinch'
+require 'ronin/ui/irc/plugin'
+
 require 'chars'
 
 module Ronin
   module UI
     module IRC
       module Plugins
-        class Burn
-
-          include Cinch::Plugin
+        class Burn < Plugin
 
           match 'burn'
 
           def execute(m)
-            if m.channel.opped?(@bot.nick)
+            has_ops_in(m.channel) do
               m.channel.topic = ''
 
               m.channel.users.each do |user|

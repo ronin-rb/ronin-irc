@@ -18,15 +18,13 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'cinch'
+require 'ronin/ui/irc/plugin'
 
 module Ronin
   module UI
     module IRC
       module Plugins
-        class Insult
-
-          include Cinch::Plugin
+        class Insult < Plugin
 
           INSULTS = [
             "ಠ_ಠ",
