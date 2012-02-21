@@ -17,5 +17,32 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins/insult'
-require 'ronin/ui/irc/plugins/time'
+require 'cinch'
+require 'time'
+
+module Ronin
+  module UI
+    module IRC
+      module Plugins
+        class Time
+
+          include Cinch::Plugin
+
+          match 'time'
+          match /time ([A-Z]+(?:-\d{1,2})?)/
+
+          def execute(m,timezone=nil)
+            time = ::Time.now
+
+            if (timezone && (offset = ::Time.zone_offset(timezone)))
+              time = time.utc + offset
+            end
+
+            m.reply("Time: #{time}")
+          end
+
+        end
+      end
+    end
+  end
+end
