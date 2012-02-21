@@ -30,6 +30,9 @@ module Ronin
           match 'time'
           match /time ([A-Z]+(?:-\d{1,2})?)/
 
+          usage "[TIMEZONE]"
+          summary "Displays the current time, in the optional timezone"
+
           def execute(m,timezone=nil)
             time = ::Time.now
 

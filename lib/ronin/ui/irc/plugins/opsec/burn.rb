@@ -29,6 +29,8 @@ module Ronin
 
           match 'burn'
 
+          summary "Kick/bans everyone from the channel, and marks it secret"
+
           def execute(m)
             has_ops_in(m.channel) do
               m.channel.topic = ''

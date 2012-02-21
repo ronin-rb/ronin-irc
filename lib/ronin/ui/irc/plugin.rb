@@ -29,6 +29,50 @@ module Ronin
 
         include Cinch::Plugin
 
+        #
+        # The command name for the plugin.
+        #
+        # @return [String]
+        #   The command name.
+        #
+        def self.command_name
+          @command_name ||= self.name.split('::').last.downcase
+        end
+
+        #
+        # Sets or returns the usage for the plugin.
+        #
+        # @param [String] summary
+        #   The new summary for the plugin.
+        #
+        # @return [String]
+        #   The summary of the plugin.
+        #
+        def self.usage(usage=nil)
+          if usage
+            @usage = usage
+          else
+            @usage ||= nil
+          end
+        end
+
+        #
+        # Sets or returns the summary for the plugin.
+        #
+        # @param [String] summary
+        #   The new summary for the plugin.
+        #
+        # @return [String]
+        #   The summary of the plugin.
+        #
+        def self.summary(summary=nil)
+          if summary
+            @summary = summary
+          else
+            @summary ||= nil
+          end
+        end
+
         protected
 
         #

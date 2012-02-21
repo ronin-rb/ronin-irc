@@ -17,6 +17,31 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins/misc'
-require 'ronin/ui/irc/plugins/opsec'
-require 'ronin/ui/irc/plugins/help'
+require 'ronin/ui/irc/plugin'
+
+module Ronin
+  module UI
+    module IRC
+      module Plugins
+        class Help < Plugin
+
+          match 'help'
+          match /help (\S+)/
+
+          usage "[COMMAND]"
+          summary "Displays help information on plugin(s)"
+
+          def execute(m,command=nil)
+            if command
+            else
+              bot.config.plugins.plugins.each do |plugin|
+                m.user.msg("!#{plugin.command_name}\t#{plugin.usage}\t#{plugin.summary}")
+              end
+            end
+          end
+
+        end
+      end
+    end
+  end
+end

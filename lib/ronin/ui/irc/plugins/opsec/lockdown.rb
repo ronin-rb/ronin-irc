@@ -30,6 +30,9 @@ module Ronin
           match 'lockdown'
           match /lockdown (on|off)/
 
+          usage "[on|off]"
+          summary "Marks the channel secret, invite-only and passwords it"
+
           def execute(m,mode='on')
             has_ops_in(m.channel) do
               case mode
