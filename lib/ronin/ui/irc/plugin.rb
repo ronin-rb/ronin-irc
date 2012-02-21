@@ -103,7 +103,7 @@ module Ronin
         #   If the user belongs to one of the channels, the block will be
         #   called.
         #
-        def is_member(user)
+        def user_filter(user)
           if bot.channels.any? { |channel| channel.has_user?(user) }
             yield
           end
@@ -120,7 +120,7 @@ module Ronin
         #   the given block will be called.
         #
         def msg_filter(m,&block)
-          is_member(m.user,&block)
+          user_filter(m.user,&block)
         end
 
         #
