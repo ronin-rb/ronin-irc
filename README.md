@@ -14,7 +14,7 @@ Ronin UI IRC is an IRC bot for Ronin.
 
 ## Synopsis
 
-    $ ronin irc
+    $ ronin irc --host irc.freenode.net --port 7000 --ssl --channels #OpSketchy
 
 ## Plugins
 

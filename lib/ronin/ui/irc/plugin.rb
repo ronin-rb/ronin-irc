@@ -17,5 +17,32 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins/misc/insult'
-require 'ronin/ui/irc/plugins/misc/time'
+module Ronin
+  module UI
+    module IRC
+      #
+      # @api semipublic
+      #
+      class Plugin
+
+        include Cinche::Plugin
+
+        protected
+
+        #
+        # Determines if the bot has ops in the channel.
+        #
+        # @param [String] channel
+        #   The channel the bot might have ops in.
+        #
+        # @return [Boolean]
+        #   Specifies whether the bot has ops in the channel
+        #
+        def ops?(channel)
+          channel.opped?(@bot.nick)
+        end
+
+      end
+    end
+  end
+end
