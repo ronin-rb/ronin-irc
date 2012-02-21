@@ -35,11 +35,15 @@ module Ronin
           match /insult (\S+)/
 
           def execute(m,nick)
-            if (m.channel && m.channel.has_user?(nick))
-              if nick == m.user.nick
-                m.reply("don't be so hard on yourself")
+            if m.channel
+              if m.channel.has_user?(nick))
+                if nick == m.user.nick
+                  m.reply("don't be so hard on yourself")
+                else
+                  m.reply("#{nick}, #{INSULTS[rand(INSULTS.length)]}")
+                end
               else
-                m.reply("#{nick}, #{INSULTS[rand(INSULTS.length)]}")
+                m.reply("there is no #{nick} here")
               end
             end
           end
