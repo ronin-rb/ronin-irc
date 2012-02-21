@@ -36,7 +36,11 @@ module Ronin
 
           def execute(m,nick)
             if (m.channel && m.channel.has_user?(nick))
-              m.channel.msg("#{nick}, #{INSULTS[rand(INSULTS.length)]}")
+              if nick == m.user.nick
+                m.reply("don't be so hard on yourself")
+              else
+                m.reply("#{nick}, #{INSULTS[rand(INSULTS.length)]}")
+              end
             end
           end
 
