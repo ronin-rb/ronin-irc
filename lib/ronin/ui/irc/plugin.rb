@@ -134,7 +134,7 @@ module Ronin
         #
         def channel_ops_filter(m)
           channel_msg_filter(m) do
-            if m.channel.opped?(@bot.nick)
+            if m.channel.opped?(bot.nick)
               yield
             else
               m.reply("#{self.class.command_name} requires OPs")
