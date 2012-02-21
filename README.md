@@ -16,7 +16,9 @@ Ronin UI IRC is an IRC bot for Ronin.
 
     $ ronin irc
 
-## Examples
+## Commands
+
+* `!insult NICK` - Insults a user in the channel.
 
 ## Requirements
 
