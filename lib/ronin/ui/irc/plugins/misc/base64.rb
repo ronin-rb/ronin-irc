@@ -35,11 +35,9 @@ module Ronin
           def execute(m,method,str)
             msg_filter(m) do
               if method == "encode"
-                encode_string = str.base64_encode.chomp
-                m.reply("#{encode_string}")
+                m.reply(str.base64_encode.chomp)
               elsif method == "decode"
-                decode_string = str.base64_decode.chomp
-                m.reply("#{decode_string}")
+                m.reply(str.base64_decode.chomp)
               end
             end
           end
