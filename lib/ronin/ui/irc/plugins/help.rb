@@ -32,7 +32,7 @@ module Ronin
           summary "Displays help information on plugin(s)"
 
           def execute(m,command=nil)
-            msg_filter(m) do |m|
+            msg_filter(m) do
               if command
               else
                 bot.config.plugins.plugins.each do |plugin|
