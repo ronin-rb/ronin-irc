@@ -20,6 +20,7 @@
 
 require 'ronin/ui/irc/plugin'
 require 'ronin/network/http'
+require 'uri/query_params'
 
 include Ronin::Network::HTTP
 
@@ -30,6 +31,8 @@ module Ronin
         class HTTP < Plugin
 
           match /(?:http_banner) (.+) (.+)/, :method => :banner
+          match /(?:parse|http_parse) (.+)/, :method => :parse
+          
           
           usage "[HOST] [PORT]"
           summary "Retrieve the HTTP banner of remote host"
@@ -41,6 +44,30 @@ module Ronin
                 m.reply(result)
               else
                 m.reply("Banner Not Found")
+              end
+            end
+          end
+        
+          def parse(m,str)
+            msg_filter(m) do
+              uri = URI(str)
+              if uri.scheme
+                m.reply("scheme: #{uri.scheme}")
+              end
+              if uri.host
+                m.reply("host: #{uri.host}")
+              end
+              if uri.port
+                m.reply("port: #{uri.port}")
+              end
+              if uri.path
+                m.reply("path: #{uri.path}")
+              end
+              unless uri.query_params.empty?
+                m.reply("query_params: #{uri.query_params}")
+              end
+              if uri.fragment
+                m.reply("fragments: #{uri.fragment}")
               end
             end
           end
