@@ -34,7 +34,7 @@ module Ronin
 
           def uri(m,url)
             msg_filter(m) do
-              uri = ::URI(url)
+              uri = URI(url)
 
               m.reply("Scheme: #{uri.scheme}") if uri.scheme
               m.reply("Host: #{uri.host}")     if uri.host
