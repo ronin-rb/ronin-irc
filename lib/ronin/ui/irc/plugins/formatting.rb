@@ -18,3 +18,4 @@
 #
 
 require 'ronin/ui/irc/plugins/formatting/base64'
+require 'ronin/ui/irc/plugins/formatting/digest'
