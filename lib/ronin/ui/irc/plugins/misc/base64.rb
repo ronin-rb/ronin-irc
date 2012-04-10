@@ -27,18 +27,21 @@ module Ronin
       module Plugins
         class Base64 < Plugin
 
-          match /base64 (encode|decode) (.+)/
+          match /(?:b64|base64) (?:enc|encode) (.+)/, :method => :encode
+          match /(?:b64|base64) (?:dec|decode) (.+)/, :method => :decode
 
-          usage "base64 (encode|decode) string"
+          usage "[base64] [encode|decode] STRING"
           summary "Encode or Decode a base64 string"
 
-          def execute(m,method,str)
+          def encode(m,str)
             msg_filter(m) do
-              if method == "encode"
-                m.reply(str.base64_encode.chomp)
-              elsif method == "decode"
-                m.reply(str.base64_decode.chomp)
-              end
+              m.reply(str.base64_encode.chomp)
+            end
+          end
+
+          def decode(m,str)
+            msg_filter(m) do
+              m.reply(str.base64_decode.chomp)
             end
           end
 
