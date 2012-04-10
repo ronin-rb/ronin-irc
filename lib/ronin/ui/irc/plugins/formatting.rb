@@ -17,7 +17,4 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/plugins/misc'
-require 'ronin/ui/irc/plugins/formatting'
-require 'ronin/ui/irc/plugins/opsec'
-require 'ronin/ui/irc/plugins/help'
+require 'ronin/ui/irc/plugins/formatting/base64'
