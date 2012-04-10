@@ -29,8 +29,8 @@ module Ronin
 
           match /base64 (encode|decode) (.+)/
 
-          usage "STRING"
-          summary "Base64 Encode a String"
+          usage "base64 (encode|decode) string"
+          summary "Encode or Decode a base64 string"
 
           def execute(m,method,str)
             msg_filter(m) do
@@ -40,8 +40,6 @@ module Ronin
               elsif method == "decode"
                 decode_string = str.base64_decode.chomp
                 m.reply("#{decode_string}")
-              elsif
-                m.reply("jbc22 is being a bitch....oh and i dont have a clue what you want me to do")
               end
             end
           end
