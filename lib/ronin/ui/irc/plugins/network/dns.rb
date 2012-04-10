@@ -21,13 +21,13 @@
 require 'ronin/ui/irc/plugin'
 require 'ronin/network/dns'
 
-include Ronin::Network::DNS
-
 module Ronin
   module UI
     module IRC
       module Plugins
         class DNS < Plugin
+
+          include Ronin::Network::DNS
 
           match /(?:dns|dns_lookup) (.+)/, :method => :lookup
           match /(?:dns_all|dns_lookup_all) (.+)/, :method => :lookup_all
