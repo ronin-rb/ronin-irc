@@ -30,7 +30,6 @@ module Ronin
           include Ronin::Network::HTTP
 
           match /(?:http_banner) (.+) (.+)/, :method => :banner
-          match /(?:parse|http_parse) (.+)/, :method => :parse
           
           usage "HOST [PORT]"
           summary "Retrieve the HTTP banner of remote host"
