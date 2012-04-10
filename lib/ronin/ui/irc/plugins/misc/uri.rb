@@ -21,6 +21,8 @@
 require 'ronin/ui/irc/plugin'
 require 'uri/query_params'
 
+require 'uri'
+
 module Ronin
   module UI
     module IRC
