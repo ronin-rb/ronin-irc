@@ -31,7 +31,7 @@ module Ronin
           match /time ([A-Z]+(?:-\d{1,2})?)/
 
           usage "[TIMEZONE]"
-          summary "Displays the current time, in the optional timezone"
+          summary "Displays the current time, the timezone is optional"
 
           def execute(m,timezone=nil)
             msg_filter(m) do

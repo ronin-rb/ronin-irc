@@ -34,7 +34,7 @@ module Ronin
 
           match /insult (\S+)/
 
-          usage "USER"
+          usage "[USER]"
           summary "Insults a user in the channel"
 
           def execute(m,nick)

@@ -18,3 +18,6 @@
 #
 
 require 'ronin/ui/irc/plugins/network/dns'
+require 'ronin/ui/irc/plugins/network/http'
+require 'ronin/ui/irc/plugins/network/tcp'
+require 'ronin/ui/irc/plugins/network/udp'

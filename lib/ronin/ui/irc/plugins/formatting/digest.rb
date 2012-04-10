@@ -31,8 +31,8 @@ module Ronin
           match /(?:sha1|sha128) (.+)/, :method => :sha1
           match /(?:sha2|sha256) (.+)/, :method => :sha256
           match /(?:sha512) (.+)/, :method => :sha512
-
-          usage "[digest] [md5|sha1|sha256|sha512] STRING"
+          
+          usage "[md5|sha1|sha256|sha512] STRING"
           summary "Encode a string as md5,sha1,sha256 or sha512"
 
           def md5(m,str)

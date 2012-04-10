@@ -19,32 +19,32 @@
 #
 
 require 'ronin/ui/irc/plugin'
-require 'ronin/formatting/binary'
+require 'ronin/network/tcp'
+
+include Ronin::Network::TCP
 
 module Ronin
   module UI
     module IRC
       module Plugins
-        class Base64 < Plugin
+        class TCP < Plugin
 
-          match /(?:b64|base64) (?:enc|encode) (.+)/, :method => :encode
-          match /(?:b64|base64) (?:dec|decode) (.+)/, :method => :decode
+          match /(?:banner|tcp_banner) (.+) (.+)/, :method => :banner
+          
+          usage "[HOST] [PORT]"
+          summary "Retrieve banner of remote host"
 
-          usage "[encode|decode] STRING"
-          summary "Encode or Decode a base64 string"
-
-          def encode(m,str)
+          def banner(m,host,port)
             msg_filter(m) do
-              m.reply(str.base64_encode.chomp)
+            result = tcp_banner(host,port)
+              if result
+                m.reply(result)
+              else
+                m.reply("Banner Not Found")
+              end
             end
           end
-
-          def decode(m,str)
-            msg_filter(m) do
-              m.reply(str.base64_decode.chomp)
-            end
-          end
-
+        
         end
       end
     end
