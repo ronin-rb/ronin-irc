@@ -19,3 +19,4 @@
 
 require 'ronin/ui/irc/plugins/misc/insult'
 require 'ronin/ui/irc/plugins/misc/time'
+require 'ronin/ui/irc/plugins/misc/uri'
