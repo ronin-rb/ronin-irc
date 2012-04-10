@@ -20,6 +20,23 @@ Ronin UI IRC is an IRC bot for Ronin.
 
 ### misc
 
+Formatting commands:
+
+* `![b64|base64] [encode|decode] STRING` - Base64 encodes/decodes a String.
+* `!md5 STRING` - Calculates the MD5 checksum of the String.
+* `![sha1|sha128] STRING` - Calculates the SHA128 checksum of the String.
+* `![sha2|sha256] STRING` - Calculates the SHA256 checksum of the String.
+* `!sha512 STRING` - Calculates the SHA512 checksum of the String.
+
+Networking commands:
+
+* `![dns|dns_lookup] HOST` - Resolves the hostname.
+* `![dns_all|dns_lookup_all] HOST` - Resolves all addresses of the hostname.
+* `![dns_reverse|dns_reverse_lookup] IP` - Reverse-looks up the hostname for
+  the IP address.
+* `![dns_reverse_all|dns_reverse_lookup_all] IP` - Reverse-looks up every
+  hostname for the IP address.
+
 Miscellaneous commands:
 
 * `!insult NICK` - Insults a user in the channel.
