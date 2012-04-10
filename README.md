@@ -18,7 +18,7 @@ Ronin UI IRC is an IRC bot for Ronin.
 
 ## Plugins
 
-### misc
+## formatting
 
 Formatting commands:
 
@@ -28,6 +28,8 @@ Formatting commands:
 * `![sha2|sha256] STRING` - Calculates the SHA256 checksum of the String.
 * `!sha512 STRING` - Calculates the SHA512 checksum of the String.
 
+### network
+
 Networking commands:
 
 * `![dns|dns_lookup] HOST` - Resolves the hostname.
@@ -36,6 +38,8 @@ Networking commands:
   the IP address.
 * `![dns_reverse_all|dns_reverse_lookup_all] IP` - Reverse-looks up every
   hostname for the IP address.
+
+### misc
 
 Miscellaneous commands:
 
