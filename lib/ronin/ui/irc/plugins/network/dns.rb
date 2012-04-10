@@ -40,7 +40,7 @@ module Ronin
           def lookup(m,str)
             msg_filter(m) do
               result = dns_lookup(str)
-              unless result.nil?
+              if result
                 m.reply(result)
               else
                 m.reply("No Results Found")
@@ -62,7 +62,7 @@ module Ronin
           def reverse_lookup(m,str)
             msg_filter(m) do
               result = dns_reverse_lookup(str)
-              unless result.nil?
+              if result
                 m.reply(result)
               else
                 m.reply("No Results Found")
