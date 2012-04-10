@@ -89,6 +89,11 @@ module Ronin
                            :description => 'Plugin groups to enable'
 
           def execute
+            unless host?
+              print_error "Must specify the --host option"
+              exit -1
+            end
+
             bot = UI::IRC::Bot.new(
               :host     => @host,
               :port     => @port,
