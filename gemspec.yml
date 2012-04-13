@@ -1,4 +1,4 @@
-name: ronin-ui-irc
+name: ronin-irc
 summary: An IRC bot for Ronin.
 description:
   Ronin UI IRC is an IRC bot for Ronin.

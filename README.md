@@ -1,4 +1,4 @@
-# Ronin UI IRC
+# Ronin IRC
 
 * [Source](http://github.com/ronin-ruby/ronin-ui-irc)
 * [Issues](http://github.com/ronin-ruby/ronin-ui-irc/issues)
@@ -8,7 +8,7 @@
 
 ## Description
 
-Ronin UI IRC is an IRC bot for Ronin.
+Ronin IRC is an IRC bot for Ronin.
 
 ## Features
 
@@ -60,13 +60,13 @@ Operational Security commands:
 
 ## Install
 
-    $ gem install ronin-ui-irc
+    $ gem install ronin-irc
 
 ## License
 
 Copyright (c) 2012 Hal Brodigan (postmodern.mod3 at gmail.com)
 
-This file is part of Ronin UI IRC.
+This file is part of Ronin IRC.
 
 Ronin Ui Irc is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
