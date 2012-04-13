@@ -56,6 +56,7 @@ Operational Security commands:
 ## Requirements
 
 * [cinch](http://github.com/cinchrb/cinch#readme) ~> 1.1
+* [cinch-commands](http://github.com/postmodern/cinch-commands#readme) ~> 0.1
 * [ronin](http://github.com/ronin-ruby/ronin#readme) ~> 1.4
 
 ## Install

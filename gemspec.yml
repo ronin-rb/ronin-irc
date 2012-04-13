@@ -13,6 +13,7 @@ required_ruby_version: ">= 1.9.2"
 
 dependencies:
   cinch: ~> 1.1
+  # cinch-commands: ~> 0.1
   ronin: ~> 1.4
 
 development_dependencies:
