@@ -1,7 +1,7 @@
 # Ronin IRC
 
-* [Source](http://github.com/ronin-ruby/ronin-ui-irc)
-* [Issues](http://github.com/ronin-ruby/ronin-ui-irc/issues)
+* [Source](https://github.com/ronin-ruby/ronin-ui-irc)
+* [Issues](https://github.com/ronin-ruby/ronin-ui-irc/issues)
 * [Documentation](http://rubydoc.info/gems/ronin-ui-irc/frames)
 * [Mailing List](http://groups.google.com/group/ronin-ruby)
 * [irc.freenode.net #ronin](http://webchat.freenode.net/?channels=ronin&uio=Mj10cnVldd)
@@ -55,9 +55,9 @@ Operational Security commands:
 
 ## Requirements
 
-* [cinch](http://github.com/cinchrb/cinch#readme) ~> 1.1
-* [cinch-commands](http://github.com/postmodern/cinch-commands#readme) ~> 0.1
-* [ronin](http://github.com/ronin-ruby/ronin#readme) ~> 1.4
+* [cinch](https://github.com/cinchrb/cinch#readme) ~> 1.1
+* [cinch-commands](https://github.com/postmodern/cinch-commands#readme) ~> 0.1
+* [ronin](https://github.com/ronin-ruby/ronin#readme) ~> 1.4
 
 ## Install
 
