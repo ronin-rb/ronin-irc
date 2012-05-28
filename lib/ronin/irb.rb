@@ -17,11 +17,5 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-module Ronin
-  module UI
-    module IRC
-      # ronin-ui-irc version
-      VERSION = '0.1.0'
-    end
-  end
-end
+require 'ronin/ui/irc/version'
+require 'ronin/ui/irc'
