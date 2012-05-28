@@ -4,7 +4,9 @@ RONIN_URI = 'http://github.com/ronin-ruby'
 
 gemspec
 
-gem 'cinch-commands', '~> 0.1', :git => 'http://github.com/postmodern/cinch-commands.git'
+# gem 'cinch-commands', '~> 0.1', :git => 'http://github.com/postmodern/cinch-commands.git'
+gem 'cinch-commands', '~> 0.1', :path => '../../cinch-commands'
+
 
 # gem 'ronin-support',  '~> 0.4.0', :git => "#{RONIN_URI}/ronin-support.git"
 # gem 'ronin',          '~> 1.4.0', :git => "#{RONIN_URI}/ronin.git"
@@ -13,8 +15,8 @@ group :development do
   gem 'rake',         '~> 0.8'
   gem 'kramdown',     '~> 0.12'
 
-  gem 'ore-tasks',    '~> 0.4'
-  gem 'rspec',        '~> 2.4'
+  gem 'rubygems-tasks', '~> 0.2'
+  gem 'rspec',          '~> 2.4'
 end
 
 #
