@@ -17,5 +17,5 @@
 # along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-require 'ronin/ui/irc/version'
+require 'ronin/irc/version'
 require 'ronin/ui/irc'
