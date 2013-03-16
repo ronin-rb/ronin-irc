@@ -1,4 +1,4 @@
 require 'rspec'
-require 'ronin/ui-irc/version'
+require 'ronin/irc/version'
 
 include Ronin

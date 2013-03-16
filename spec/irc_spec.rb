@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'ronin/ui-irc/version'
+require 'ronin/irc/version'
 
-describe Ui-irc do
+describe IRC do
   it "should have a VERSION constant" do
     subject.const_get('VERSION').should_not be_nil
   end
