@@ -1,6 +1,6 @@
 # encoding: utf-8
 #
-# Copyright (c) 2012 Hal Brodigan (postmodern.mod3 at gmail.com)
+# Copyright (c) 2012-2013 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
 # This file is part of Ronin UI IRC.
 #
