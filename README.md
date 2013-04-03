@@ -56,10 +56,10 @@ Operational Security commands:
 ## Requirements
 
 * [Ruby] >= 1.9.2
-* [cinch](https://github.com/cinchrb/cinch#readme) ~> 1.1
-* [cinch-commands](https://github.com/postmodern/cinch-commands#readme) ~> 0.1
-* [ronin-support](https://github.com/ronin-ruby/ronin-support#readme) ~> 0.4
-* [ronin](https://github.com/ronin-ruby/ronin#readme) ~> 1.4
+* [cinch] ~> 1.1
+* [cinch-commands] ~> 0.1
+* [ronin-support] ~> 0.4
+* [ronin] ~> 1.4
 
 ## Install
 
@@ -85,3 +85,7 @@ You should have received a copy of the GNU General Public License
 along with Ronin Ui Irc.  If not, see <http://www.gnu.org/licenses/>.
 
 [Ruby]: http://www.ruby-lang.org/
+[cinch]: https://github.com/cinchrb/cinch#readme
+[cinch-commands]: https://github.com/postmodern/cinch-commands#readme
+[ronin-support]: https://github.com/ronin-ruby/ronin-support#readme
+[ronin]: https://github.com/ronin-ruby/ronin#readme
