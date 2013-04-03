@@ -4,11 +4,11 @@ RONIN_URI = 'http://github.com/ronin-ruby'
 
 gemspec
 
-gem 'cinch-commands', '~> 0.1', :git => 'http://github.com/postmodern/cinch-commands.git'
+gem 'cinch-commands', '~> 0.1', git: 'http://github.com/postmodern/cinch-commands.git'
 
 
-# gem 'ronin-support',  '~> 0.4.0', :git => "#{RONIN_URI}/ronin-support.git"
-# gem 'ronin',          '~> 1.4.0', :git => "#{RONIN_URI}/ronin.git"
+# gem 'ronin-support',  '~> 0.4.0', git: "#{RONIN_URI}/ronin-support.git"
+# gem 'ronin',          '~> 1.4.0', git: "#{RONIN_URI}/ronin.git"
 
 group :development do
   gem 'rake',         '~> 10.0'
@@ -36,5 +36,5 @@ adapters = (ENV['ADAPTER'] || ENV['ADAPTERS']).to_s
 adapters = Set.new(adapters.to_s.tr(',',' ').split)
 
 (DM_ADAPTERS & adapters).each do |adapter|
-  gem "dm-#{adapter}-adapter", DM_VERSION #, :git => "#{DM_URI}/dm-#{adapter}-adapter.git"
+  gem "dm-#{adapter}-adapter", DM_VERSION #, git: "#{DM_URI}/dm-#{adapter}-adapter.git"
 end
