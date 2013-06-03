@@ -4,7 +4,7 @@ RONIN_URI = 'http://github.com/ronin-ruby'
 
 gemspec
 
-gem 'cinch-commands', '~> 0.1', git: 'http://github.com/postmodern/cinch-commands.git'
+# gem 'cinch-commands', '~> 0.1', git: 'http://github.com/postmodern/cinch-commands.git'
 
 
 # gem 'ronin-support',  '~> 0.4.0', git: "#{RONIN_URI}/ronin-support.git"

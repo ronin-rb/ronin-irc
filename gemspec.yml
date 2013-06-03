@@ -12,8 +12,8 @@ has_yard: true
 required_ruby_version: ">= 1.9.2"
 
 dependencies:
-  cinch: ~> 1.1
-  # cinch-commands: ~> 0.1
+  cinch: ~> 2.0
+  cinch-commands: ~> 0.1
   ronin-support: ~> 0.4
   ronin: ~> 1.4
 

@@ -56,7 +56,7 @@ Operational Security commands:
 ## Requirements
 
 * [Ruby] >= 1.9.2
-* [cinch] ~> 1.1
+* [cinch] ~> 2.0
 * [cinch-commands] ~> 0.1
 * [ronin-support] ~> 0.4
 * [ronin] ~> 1.4
